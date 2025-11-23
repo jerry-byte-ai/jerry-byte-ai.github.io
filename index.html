@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <title>Portfolio | Jerlin G George</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Portfolio of Jerlin G George - Network Engineer & Aspiring IT Executive" />
+  <meta name="description" content="Portfolio of Jerlin G George - L2 Network Support Engineer" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
@@ -23,13 +23,7 @@
       --radius-full: 999px;
       --transition-fast: 0.2s ease-out;
     }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
       background: radial-gradient(circle at top, #111827 0, #020617 40%, #000 100%);
@@ -37,160 +31,81 @@
       line-height: 1.6;
       scroll-behavior: smooth;
     }
+    a { color: inherit; text-decoration: none; }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+    .container { width: 100%; max-width: 1080px; margin: 0 auto; padding: 0 1.25rem; }
 
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
-    /* Layout */
-    .container {
-      width: 100%;
-      max-width: 1080px;
-      margin: 0 auto;
-      padding: 0 1.25rem;
-    }
-
-    /* Navbar */
+    /* NAVBAR */
     header {
-      position: sticky;
-      top: 0;
-      z-index: 50;
+      position: sticky; top: 0; z-index: 50;
       backdrop-filter: blur(18px);
       background: linear-gradient(to bottom, rgba(2, 6, 23, 0.92), rgba(2, 6, 23, 0.7), transparent);
       border-bottom: 1px solid rgba(31, 41, 55, 0.8);
     }
-
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0.85rem 0;
-    }
-
-    .nav-left {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
+    .nav { display: flex; align-items: center; justify-content: space-between; padding: 0.85rem 0; }
+    .nav-left { display: flex; align-items: center; gap: 0.5rem; }
     .nav-logo {
-      width: 34px;
-      height: 34px;
-      border-radius: var(--radius-full);
+      width: 34px; height: 34px; border-radius: var(--radius-full);
       background: radial-gradient(circle at 30% 20%, #22d3ee, #4f46e5, #1e293b);
       box-shadow: 0 0 25px rgba(56, 189, 248, 0.6);
     }
-
-    .nav-name {
-      font-weight: 600;
-      letter-spacing: 0.05em;
-      font-size: 0.95rem;
-      text-transform: uppercase;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 1.25rem;
-      font-size: 0.9rem;
-    }
-
+    .nav-name { font-weight: 600; letter-spacing: 0.05em; font-size: 0.95rem; text-transform: uppercase; }
+    .nav-links { display: flex; gap: 1.25rem; font-size: 0.9rem; }
     .nav-links a {
-      position: relative;
-      color: var(--muted);
-      transition: color var(--transition-fast);
+      position: relative; color: var(--muted); transition: color var(--transition-fast);
+      cursor: pointer;
     }
-
     .nav-links a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -4px;
-      width: 0;
-      height: 2px;
+      content: ""; position: absolute; left: 0; bottom: -4px; width: 0; height: 2px;
       border-radius: 999px;
       background: linear-gradient(to right, #22d3ee, #6366f1);
       transition: width var(--transition-fast);
     }
+    .nav-links a:hover { color: var(--text); }
+    .nav-links a:hover::after { width: 100%; }
 
-    .nav-links a:hover {
-      color: var(--text);
-    }
-
-    .nav-links a:hover::after {
-      width: 100%;
-    }
-
-    /* Hero */
+    /* HERO (main visible page) */
     .hero {
       padding: 4.5rem 0 3.5rem;
       display: grid;
       grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
       gap: 3rem;
       align-items: center;
+      min-height: calc(100vh - 80px);
     }
-
     .hero-kicker {
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 0.2em;
-      color: var(--muted);
-      margin-bottom: 0.6rem;
+      font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.2em;
+      color: var(--muted); margin-bottom: 0.6rem;
     }
-
     .hero-title {
       font-size: clamp(2.3rem, 3.4vw + 1.4rem, 3.2rem);
-      line-height: 1.15;
-      font-weight: 700;
-      margin-bottom: 0.65rem;
+      line-height: 1.15; font-weight: 700; margin-bottom: 0.65rem;
     }
-
     .hero-title span {
       background: linear-gradient(to right, #22d3ee, #a855f7, #6366f1);
-      -webkit-background-clip: text;
-      color: transparent;
+      -webkit-background-clip: text; color: transparent;
     }
-
     .hero-subtitle {
-      font-size: 1.05rem;
-      color: var(--muted);
-      margin-bottom: 1.25rem;
+      font-size: 1.05rem; color: var(--muted); margin-bottom: 1.25rem;
     }
-
     .hero-badges {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.55rem;
-      margin-bottom: 1.6rem;
+      display: flex; flex-wrap: wrap; gap: 0.55rem; margin-bottom: 1.6rem;
     }
-
     .badge {
-      font-size: 0.75rem;
-      padding: 0.35rem 0.7rem;
+      font-size: 0.75rem; padding: 0.35rem 0.7rem;
       border-radius: var(--radius-full);
       border: 1px solid rgba(148, 163, 184, 0.4);
       background: rgba(15, 23, 42, 0.7);
     }
-
     .badge-accent {
       border: none;
       background: radial-gradient(circle at 0 0, #22d3ee, #6366f1);
       color: #e5e7eb;
       box-shadow: 0 0 24px rgba(79, 70, 229, 0.6);
     }
-
     .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.8rem;
-      margin-bottom: 1.5rem;
+      display: flex; flex-wrap: wrap; gap: 0.8rem; margin-bottom: 1.5rem;
     }
-
     .btn {
       border-radius: var(--radius-full);
       padding: 0.7rem 1.4rem;
@@ -205,45 +120,31 @@
       background: transparent;
       color: var(--text);
     }
-
     .btn-primary {
       background: linear-gradient(to right, #4f46e5, #6366f1, #22c55e);
       box-shadow: 0 12px 32px rgba(79, 70, 229, 0.55);
     }
-
     .btn-primary:hover {
       transform: translateY(-1px) scale(1.01);
       box-shadow: 0 18px 42px rgba(79, 70, 229, 0.7);
     }
-
     .btn-ghost {
       border-color: rgba(148, 163, 184, 0.6);
       background: rgba(15, 23, 42, 0.7);
     }
-
     .btn-ghost:hover {
       border-color: #6366f1;
       background: rgba(15, 23, 42, 0.95);
     }
+    .hero-meta { font-size: 0.8rem; color: var(--muted); }
+    .hero-meta span { color: #e5e7eb; font-weight: 500; }
 
-    .hero-meta {
-      font-size: 0.8rem;
-      color: var(--muted);
-    }
-
-    .hero-meta span {
-      color: #e5e7eb;
-      font-weight: 500;
-    }
-
-    .hero-right {
-      position: relative;
-    }
-
+    .hero-right { position: relative; }
     .hero-card {
-      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.18), transparent 58%),
-                  radial-gradient(circle at bottom right, rgba(147, 51, 234, 0.22), transparent 55%),
-                  var(--card);
+      background:
+        radial-gradient(circle at top left, rgba(56, 189, 248, 0.18), transparent 58%),
+        radial-gradient(circle at bottom right, rgba(147, 51, 234, 0.22), transparent 55%),
+        var(--card);
       border-radius: 28px;
       padding: 1.4rem 1.4rem 1.3rem;
       border: 1px solid rgba(55, 65, 81, 0.9);
@@ -251,146 +152,87 @@
       position: relative;
       overflow: hidden;
     }
-
     .hero-card-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      display: flex; align-items: center; justify-content: space-between;
       margin-bottom: 1.25rem;
     }
-
     .hero-avatar {
-      width: 52px;
-      height: 52px;
-      border-radius: 18px;
+      width: 52px; height: 52px; border-radius: 18px;
       background: conic-gradient(from 160deg, #22d3ee, #6366f1, #a855f7, #22d3ee);
       padding: 3px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      display: flex; align-items: center; justify-content: center;
     }
-
     .hero-avatar-inner {
-      width: 100%;
-      height: 100%;
-      border-radius: 15px;
+      width: 100%; height: 100%; border-radius: 15px;
       background: radial-gradient(circle at 30% 20%, #0f172a, #020617);
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      display: flex; align-items: center; justify-content: center;
       font-size: 1.4rem;
     }
-
     .hero-status-pill {
-      padding: 0.4rem 0.8rem;
-      border-radius: 999px;
-      font-size: 0.75rem;
+      padding: 0.4rem 0.8rem; border-radius: 999px; font-size: 0.75rem;
       background: rgba(15, 23, 42, 0.9);
       border: 1px solid rgba(34, 197, 94, 0.6);
       color: #bbf7d0;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
+      display: inline-flex; align-items: center; gap: 0.35rem;
     }
-
     .hero-status-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 999px;
+      width: 7px; height: 7px; border-radius: 999px;
       background: #22c55e;
       box-shadow: 0 0 12px rgba(34, 197, 94, 0.9);
     }
-
     .hero-card-body {
-      font-size: 0.83rem;
-      color: #e5e7eb;
-      margin-bottom: 1.1rem;
+      font-size: 0.83rem; color: #e5e7eb; margin-bottom: 1.1rem;
     }
-
-    .hero-card-body p + p {
-      margin-top: 0.4rem;
-      color: var(--muted);
-    }
-
+    .hero-card-body p + p { margin-top: 0.4rem; color: var(--muted); }
     .pill-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.45rem;
-      margin-bottom: 0.9rem;
+      display: flex; flex-wrap: wrap; gap: 0.45rem; margin-bottom: 0.9rem;
     }
-
     .pill {
-      font-size: 0.72rem;
-      padding: 0.3rem 0.7rem;
+      font-size: 0.72rem; padding: 0.3rem 0.7rem;
       border-radius: var(--radius-full);
       background: rgba(15, 23, 42, 0.9);
       border: 1px solid rgba(75, 85, 99, 0.8);
     }
-
     .pill-strong {
       border-color: rgba(56, 189, 248, 0.9);
       background: rgba(15, 23, 42, 0.9);
     }
-
     .hero-card-footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 0.8rem;
-      color: var(--muted);
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 0.8rem; color: var(--muted);
       border-top: 1px dashed rgba(55, 65, 81, 0.9);
-      padding-top: 0.8rem;
-      margin-top: 0.2rem;
+      padding-top: 0.8rem; margin-top: 0.2rem;
     }
-
     .hero-highlight {
-      position: absolute;
-      inset: auto auto -12px 50%;
+      position: absolute; inset: auto auto -12px 50%;
       transform: translateX(-50%);
-      width: 80%;
-      height: 22px;
+      width: 80%; height: 22px;
       border-radius: 999px;
       background: radial-gradient(circle at 50% 0, rgba(129, 140, 248, 0.9), transparent 70%);
-      opacity: 0.45;
-      pointer-events: none;
-      mix-blend-mode: screen;
+      opacity: 0.45; pointer-events: none; mix-blend-mode: screen;
     }
 
-    /* Sections */
-    section {
+    /* SECTIONS (hidden by default) */
+    section.content-section {
       padding: 2.5rem 0;
+      display: none;              /* key: hidden initially */
     }
-
-    .section-header {
-      margin-bottom: 1.6rem;
+    section.content-section.active {
+      display: block;             /* shown when selected */
     }
-
+    .section-header { margin-bottom: 1.6rem; }
     .section-kicker {
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.2em;
-      color: var(--muted);
-      margin-bottom: 0.35rem;
+      font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.2em;
+      color: var(--muted); margin-bottom: 0.35rem;
     }
+    .section-title { font-size: 1.4rem; font-weight: 600; }
+    .section-desc { font-size: 0.9rem; color: var(--muted); margin-top: 0.3rem; }
 
-    .section-title {
-      font-size: 1.4rem;
-      font-weight: 600;
-    }
-
-    .section-desc {
-      font-size: 0.9rem;
-      color: var(--muted);
-      margin-top: 0.3rem;
-    }
-
-    /* About */
     .about-grid {
       display: grid;
       grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
       gap: 1.8rem;
     }
-
     .about-card {
       background: var(--bg-alt);
       border-radius: var(--radius-lg);
@@ -398,34 +240,12 @@
       padding: 1.4rem 1.5rem;
       box-shadow: 0 14px 40px rgba(15, 23, 42, 0.65);
     }
+    .about-card h3 { font-size: 1rem; margin-bottom: 0.6rem; }
+    .about-card p { font-size: 0.9rem; color: #e5e7eb; }
+    .about-list { list-style: none; margin-top: 0.7rem; font-size: 0.85rem; color: var(--muted); }
+    .about-list li { margin-bottom: 0.35rem; }
 
-    .about-card h3 {
-      font-size: 1rem;
-      margin-bottom: 0.6rem;
-    }
-
-    .about-card p {
-      font-size: 0.9rem;
-      color: #e5e7eb;
-    }
-
-    .about-list {
-      list-style: none;
-      margin-top: 0.7rem;
-      font-size: 0.85rem;
-      color: var(--muted);
-    }
-
-    .about-list li {
-      margin-bottom: 0.35rem;
-    }
-
-    /* Experience */
-    .experience-list {
-      display: grid;
-      gap: 1rem;
-    }
-
+    .experience-list { display: grid; gap: 1rem; }
     .experience-item {
       background: var(--bg-alt);
       border-radius: var(--radius-lg);
@@ -433,143 +253,20 @@
       padding: 1.2rem 1.3rem;
       box-shadow: 0 14px 40px rgba(15, 23, 42, 0.65);
     }
-
     .experience-header {
-      display: flex;
-      justify-content: space-between;
-      gap: 1rem;
-      margin-bottom: 0.4rem;
-      align-items: baseline;
+      display: flex; justify-content: space-between; gap: 1rem;
+      margin-bottom: 0.4rem; align-items: baseline;
     }
-
-    .experience-title {
-      font-weight: 500;
-      font-size: 0.98rem;
-    }
-
-    .experience-company {
-      font-size: 0.83rem;
-      color: var(--muted);
-    }
-
-    .experience-duration {
-      font-size: 0.78rem;
-      color: var(--muted);
-      white-space: nowrap;
-    }
-
-    .experience-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.35rem;
-      margin-top: 0.55rem;
-      font-size: 0.75rem;
-    }
-
-    .experience-tags span {
-      padding: 0.25rem 0.55rem;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.9);
-      border: 1px solid rgba(55, 65, 81, 0.9);
-    }
-
+    .experience-title { font-weight: 500; font-size: 0.98rem; }
+    .experience-company { font-size: 0.83rem; color: var(--muted); }
+    .experience-duration { font-size: 0.78rem; color: var(--muted); white-space: nowrap; }
     .experience-item ul {
-      margin-top: 0.5rem;
-      padding-left: 1rem;
-      font-size: 0.83rem;
-      color: #e5e7eb;
+      margin-top: 0.5rem; padding-left: 1rem;
+      font-size: 0.83rem; color: #e5e7eb;
     }
+    .experience-item li + li { margin-top: 0.35rem; }
 
-    .experience-item li + li {
-      margin-top: 0.35rem;
-    }
-
-    /* Skills */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-      gap: 1rem;
-    }
-
-    .skills-card {
-      background: var(--bg-alt);
-      border-radius: var(--radius-lg);
-      border: 1px solid rgba(31, 41, 55, 0.9);
-      padding: 1.1rem 1.2rem;
-      box-shadow: 0 14px 40px rgba(15, 23, 42, 0.65);
-    }
-
-    .skills-card h3 {
-      font-size: 0.95rem;
-      margin-bottom: 0.4rem;
-    }
-
-    .skills-pill-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-      margin-top: 0.3rem;
-    }
-
-    .skills-pill {
-      font-size: 0.75rem;
-      padding: 0.3rem 0.6rem;
-      border-radius: 999px;
-      border: 1px solid rgba(55, 65, 81, 0.9);
-      background: rgba(15, 23, 42, 0.85);
-    }
-
-    /* Projects */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.1rem;
-    }
-
-    .project-card {
-      background: var(--bg-alt);
-      border-radius: var(--radius-lg);
-      border: 1px solid rgba(31, 41, 55, 0.9);
-      padding: 1.1rem 1.15rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.45rem;
-      box-shadow: 0 14px 40px rgba(15, 23, 42, 0.65);
-    }
-
-    .project-title {
-      font-size: 0.98rem;
-      font-weight: 500;
-    }
-
-    .project-desc {
-      font-size: 0.83rem;
-      color: #e5e7eb;
-    }
-
-    .project-meta {
-      font-size: 0.78rem;
-      color: var(--muted);
-    }
-
-    .project-links {
-      margin-top: 0.35rem;
-      font-size: 0.8rem;
-    }
-
-    .project-links a {
-      text-decoration: underline;
-      text-underline-offset: 3px;
-      text-decoration-style: dotted;
-      color: #a5b4fc;
-    }
-
-    /* Education */
-    .education-list {
-      display: grid;
-      gap: 0.9rem;
-    }
-
+    .education-list { display: grid; gap: 0.9rem; }
     .education-item {
       background: var(--bg-alt);
       border-radius: var(--radius-lg);
@@ -578,37 +275,21 @@
       font-size: 0.85rem;
       box-shadow: 0 14px 40px rgba(15, 23, 42, 0.65);
     }
-
     .education-item strong {
       display: block;
       font-size: 0.95rem;
       margin-bottom: 0.2rem;
     }
+    .education-meta { color: var(--muted); font-size: 0.8rem; }
 
-    .education-meta {
-      color: var(--muted);
-      font-size: 0.8rem;
-    }
-
-    /* Contact */
     .contact-grid {
       display: grid;
       grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
       gap: 1.7rem;
       align-items: start;
     }
-
-    .contact-info {
-      font-size: 0.9rem;
-      color: var(--muted);
-    }
-
-    .contact-cards {
-      margin-top: 1rem;
-      display: grid;
-      gap: 0.6rem;
-    }
-
+    .contact-info { font-size: 0.9rem; color: var(--muted); }
+    .contact-cards { margin-top: 1rem; display: grid; gap: 0.6rem; }
     .contact-card {
       background: var(--bg-alt);
       border-radius: var(--radius-lg);
@@ -617,74 +298,16 @@
       font-size: 0.82rem;
       box-shadow: 0 10px 30px rgba(15, 23, 42, 0.7);
     }
-
     .contact-card span {
-      display: block;
-      font-size: 0.78rem;
-      color: var(--muted);
-      margin-bottom: 0.15rem;
+      display: block; font-size: 0.78rem; color: var(--muted); margin-bottom: 0.15rem;
     }
-
     .contact-card a {
-      font-size: 0.9rem;
-      color: #a5b4fc;
+      font-size: 0.9rem; color: #a5b4fc;
       text-decoration: underline;
       text-underline-offset: 3px;
       text-decoration-style: dotted;
     }
 
-    .contact-form {
-      background: var(--bg-alt);
-      border-radius: var(--radius-lg);
-      border: 1px solid rgba(31, 41, 55, 0.9);
-      padding: 1.1rem 1.2rem;
-      box-shadow: 0 14px 40px rgba(15, 23, 42, 0.7);
-    }
-
-    .contact-form-row {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 0.8rem;
-      margin-bottom: 0.7rem;
-    }
-
-    .form-field {
-      display: flex;
-      flex-direction: column;
-      gap: 0.25rem;
-      font-size: 0.8rem;
-    }
-
-    .form-field label {
-      color: var(--muted);
-    }
-
-    .form-field input,
-    .form-field textarea {
-      border-radius: 0.9rem;
-      border: 1px solid rgba(55, 65, 81, 0.9);
-      background: #020617;
-      padding: 0.55rem 0.65rem;
-      color: var(--text);
-      font: inherit;
-      resize: vertical;
-      min-height: 38px;
-    }
-
-    .form-field input:focus,
-    .form-field textarea:focus {
-      outline: none;
-      border-color: #6366f1;
-      box-shadow: 0 0 0 1px rgba(79, 70, 229, 0.75);
-    }
-
-    .contact-form button {
-      margin-top: 0.5rem;
-      width: 100%;
-      justify-content: center;
-    }
-
-    /* Footer */
     footer {
       padding: 1.5rem 0 2rem;
       border-top: 1px solid rgba(31, 41, 55, 0.9);
@@ -694,46 +317,18 @@
       text-align: center;
     }
 
-    footer a {
-      color: #a5b4fc;
-      text-decoration: underline;
-      text-underline-offset: 3px;
-      text-decoration-style: dotted;
-    }
-
-    /* Responsive */
     @media (max-width: 900px) {
-      .hero {
-        grid-template-columns: minmax(0, 1fr);
-      }
-      .hero-right {
-        order: -1;
-      }
-      .about-grid,
-      .contact-grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
-      .nav-links {
-        display: none;
-      }
+      .hero { grid-template-columns: minmax(0, 1fr); }
+      .hero-right { order: -1; margin-bottom: 2rem; }
+      .nav-links { display: none; }
+      .contact-grid { grid-template-columns: minmax(0, 1fr); }
+      .about-grid { grid-template-columns: minmax(0, 1fr); }
     }
-
     @media (max-width: 600px) {
-      .hero {
-        padding-top: 3.3rem;
-      }
-      .hero-title {
-        font-size: 2.1rem;
-      }
-      .hero-card {
-        padding: 1.1rem 1.1rem 1rem;
-      }
-      .section-title {
-        font-size: 1.25rem;
-      }
-      .contact-form-row {
-        grid-template-columns: minmax(0, 1fr);
-      }
+      .hero { padding-top: 3.3rem; }
+      .hero-title { font-size: 2.1rem; }
+      .hero-card { padding: 1.1rem 1.1rem 1rem; }
+      .section-title { font-size: 1.25rem; }
     }
   </style>
 </head>
@@ -746,18 +341,16 @@
         <div class="nav-name">Jerlin G George</div>
       </div>
       <nav class="nav-links">
-        <a href="#about">About</a>
-        <a href="#experience">Experience</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#education">Education</a>
-        <a href="#contact">Contact</a>
+        <a data-target="about">About</a>
+        <a data-target="experience">Experience</a>
+        <a data-target="education">Education</a>
+        <a data-target="contact">Contact</a>
       </nav>
     </div>
   </header>
 
   <main class="container">
-    <!-- HERO -->
+    <!-- HERO: only this is visible at first -->
     <section class="hero" id="top">
       <div>
         <div class="hero-kicker">Portfolio · Network & IT</div>
@@ -765,28 +358,30 @@
           Hi, I'm <span>Jerlin G George</span>
         </h1>
         <p class="hero-subtitle">
-          L2 Network Engineer & aspiring IT Executive, passionate about secure, reliable infrastructure and hands-on problem solving.
+          L2 Network Support Engineer with hands-on NOC experience in 24/7 monitoring, incident response
+          and troubleshooting. Passionate about secure, reliable networks and continuous learning.
         </p>
 
         <div class="hero-badges">
-          <span class="badge badge-accent">Network Engineering</span>
-          <span class="badge">IT Infrastructure</span>
-          <span class="badge">Security & NIDS</span>
-          <span class="badge">Automation & Scripting</span>
+          <span class="badge badge-accent">L2 Network Support</span>
+          <span class="badge">NOC Operations</span>
+          <span class="badge">Monitoring & RCA</span>
+          <span class="badge">Customer Support</span>
         </div>
 
         <div class="hero-actions">
-          <a href="#" class="btn btn-primary">
-            Download Resume
-            <span>⬇️</span>
+          <!-- Your CV file in the same repo root -->
+          <a href="JERLIN%20G%20GEORGE%20-%20CV.pdf" class="btn btn-primary" download>
+            Download Resume <span>⬇️</span>
           </a>
-          <a href="#contact" class="btn btn-ghost">
-            Contact Me
+          <!-- This just scrolls slightly down to hint there is more (optional) -->
+          <a href="#top" class="btn btn-ghost" id="see-more-btn">
+            See details
           </a>
         </div>
 
         <div class="hero-meta">
-          <span>Open to opportunities</span> · On-site / Hybrid · India
+          <span>Open to network / IT roles</span> · On-site / Hybrid · India
         </div>
       </div>
 
@@ -798,7 +393,7 @@
                 <div class="hero-avatar-inner">JG</div>
               </div>
               <div>
-                <div style="font-size:0.9rem;font-weight:500;">Network Engineer</div>
+                <div style="font-size:0.9rem;font-weight:500;">L2 Network Support Engineer</div>
                 <div style="font-size:0.75rem;color:var(--muted);">
                   Extranet Supports Pvt. Ltd.
                 </div>
@@ -812,23 +407,23 @@
 
           <div class="hero-card-body">
             <p>
-              Monitoring, troubleshooting, and securing enterprise networks to keep services up and users happy.
+              Providing 24/7 network monitoring and support in a fast-paced NOC, ensuring high availability.
             </p>
             <p>
-              Focused on incident response, performance optimization, and learning modern security practices.
+              Experienced with Observium, Zabbix, Up-time Kuma, RCA and incident management.
             </p>
           </div>
 
           <div class="pill-row">
-            <div class="pill pill-strong">Routing & Switching</div>
-            <div class="pill">Firewalls</div>
-            <div class="pill">Linux</div>
+            <div class="pill pill-strong">TCP/IP, Routing & Switching</div>
+            <div class="pill">VLANs & Subnetting</div>
+            <div class="pill">Monitoring tools</div>
             <div class="pill">Wireshark</div>
-            <div class="pill">Python basics</div>
+            <div class="pill">Linux basics</div>
           </div>
 
           <div class="hero-card-footer">
-            <div>Active incidents today: <strong>0</strong></div>
+            <div>Major incidents this week: <strong>0</strong></div>
             <div>Uptime (last 30 days): <strong>99.9%</strong></div>
           </div>
         </div>
@@ -836,16 +431,237 @@
       </div>
     </section>
 
-    <!-- ABOUT -->
-    <section id="about">
+    <!-- ABOUT (hidden until About link is clicked) -->
+    <section id="about" class="content-section">
       <div class="section-header">
         <div class="section-kicker">About</div>
-        <h2 class="section-title">Who I am</h2>
-        <p class="section-desc">
-          A quick snapshot of my background, interests, and what I want to work on next.
-        </p>
+        <h2 class="section-title">About me</h2>
       </div>
 
       <div class="about-grid">
         <div class="about-card">
-          <h3>Short story</h3>
+          <h3>Professional summary</h3>
+          <p>
+            I am an IT and networking professional currently working as a
+            <strong>L2 Network Support Engineer</strong> in a 24/7 NOC environment.
+            I enjoy monitoring live networks, analysing incidents and finding root causes for complex issues.
+          </p>
+          <ul class="about-list">
+            <li>• Comfortable with CLI, monitoring dashboards and ticketing tools</li>
+            <li>• Able to communicate with both technical teams and end users</li>
+            <li>• Interested in security operations, automation and continuous improvement</li>
+          </ul>
+        </div>
+
+        <div class="about-card">
+          <h3>What I'm looking for</h3>
+          <p>
+            Opportunities where I can apply my NOC experience and grow into roles that mix networking,
+            infrastructure and security — such as Network Engineer, NOC/SOC engineer, or IT Executive.
+          </p>
+          <ul class="about-list">
+            <li>• Exposure to enterprise-grade networks and security tools</li>
+            <li>• Teams that value learning, documentation and RCA</li>
+            <li>• Ability to contribute to uptime, reliability and security</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience" class="content-section">
+      <div class="section-header">
+        <div class="section-kicker">Experience</div>
+        <h2 class="section-title">Professional Experience</h2>
+      </div>
+
+      <div class="experience-list">
+        <div class="experience-item">
+          <div class="experience-header">
+            <div>
+              <div class="experience-title">L2 Network Support Engineer</div>
+              <div class="experience-company">Extranet Supports Pvt. Ltd.</div>
+            </div>
+            <div class="experience-duration">Jun 2024 – Present</div>
+          </div>
+          <ul>
+            <li>Provide 24/7 network monitoring and support in a fast-paced NOC environment.</li>
+            <li>Use Observium, Up-time Kuma and Zabbix to proactively detect and resolve issues.</li>
+            <li>Perform root cause analysis (RCA) for major incidents and document preventative actions.</li>
+            <li>Configure and maintain switches, routers and IP QAM modulators following best practices.</li>
+            <li>Manage incident tickets, prioritising and escalating as needed for timely resolution.</li>
+          </ul>
+        </div>
+
+        <div class="experience-item">
+          <div class="experience-header">
+            <div>
+              <div class="experience-title">Associate – CS (Internet)</div>
+              <div class="experience-company">Sutherland (Amazon North America chat support)</div>
+            </div>
+            <div class="experience-duration">Jul 2022 – Nov 2022</div>
+          </div>
+          <ul>
+            <li>Delivered real-time chat support to Amazon customers across North America.</li>
+            <li>Handled order queries, refunds, cancellations and escalations with high accuracy.</li>
+            <li>Used CRM tools and internal systems to document interactions and track issues.</li>
+          </ul>
+        </div>
+
+        <div class="experience-item">
+          <div class="experience-header">
+            <div>
+              <div class="experience-title">Operations Executive</div>
+              <div class="experience-company">Luluforex Pvt. Ltd.</div>
+            </div>
+            <div class="experience-duration">Dec 2021 – Jun 2022</div>
+          </div>
+          <ul>
+            <li>Handled day-to-day operations in a foreign exchange environment.</li>
+            <li>Ensured compliance with internal procedures and regulatory requirements.</li>
+            <li>Supported customer queries and coordinated with branch / head office as required.</li>
+          </ul>
+        </div>
+
+        <div class="experience-item">
+          <div class="experience-header">
+            <div>
+              <div class="experience-title">L2 Engineer – Internship</div>
+              <div class="experience-company">Dataflow (Ramapuram)</div>
+            </div>
+            <div class="experience-duration">Internship</div>
+          </div>
+          <ul>
+            <li>Configured switches (Cisco, Huawei), VLANs, MSTP, OLT and trunk ports in lab setups.</li>
+            <li>Observed live troubleshooting workflows used by senior engineers.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education" class="content-section">
+      <div class="section-header">
+        <div class="section-kicker">Education</div>
+        <h2 class="section-title">Education & Training</h2>
+      </div>
+
+      <div class="education-list">
+        <div class="education-item">
+          <strong>Bachelor of Computer Applications (BCA)</strong>
+          <div class="education-meta">
+            College of Applied Science (IHRD), Mavelikkara · 2020
+          </div>
+        </div>
+
+        <div class="education-item">
+          <strong>Higher Secondary Education</strong>
+          <div class="education-meta">
+            Bishop Hodges Higher Secondary School · 2017
+          </div>
+        </div>
+
+        <div class="education-item">
+          <strong>Certifications & Courses</strong>
+          <div class="education-meta">
+            Dataflow Certified Network Engineer (DCNE) · Certified IT Infrastructure & Cyber SOC Analyst ·
+            Software Testing · Java, C/C++, Android (academic trainings)
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="content-section">
+      <div class="section-header">
+        <div class="section-kicker">Contact</div>
+        <h2 class="section-title">Contact details</h2>
+      </div>
+
+      <div class="contact-grid">
+        <div>
+          <div class="contact-info">
+            The best way to reach me is through email or LinkedIn. I’m based in Kerala, India and open
+            to network / IT roles.
+          </div>
+
+          <div class="contact-cards">
+            <div class="contact-card">
+              <span>Phone</span>
+              <div>+91 89219 78496</div>
+            </div>
+            <div class="contact-card">
+              <span>Email</span>
+              <a href="mailto:jerryoutlook07@gmail.com">jerryoutlook07@gmail.com</a>
+            </div>
+            <div class="contact-card">
+              <span>LinkedIn</span>
+              <a href="https://linkedin.com/in/jerlin-g-george-bb885201" target="_blank" rel="noopener">
+                linkedin.com/in/jerlin-g-george-bb885201
+              </a>
+            </div>
+            <div class="contact-card">
+              <span>Location</span>
+              <div>Mavelikkara, Alappuzha, Kerala, India</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> Jerlin G George · Built for LinkedIn & GitHub Pages
+  </footer>
+
+  <script>
+    // footer year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // show sections only when nav links are clicked
+    const navLinks = document.querySelectorAll(".nav-links a[data-target]");
+    const sections = document.querySelectorAll(".content-section");
+
+    function showSection(id) {
+      sections.forEach(sec => {
+        if (sec.id === id) sec.classList.add("active");
+        else sec.classList.remove("active");
+      });
+      // scroll a bit below the hero
+      const header = document.querySelector("header");
+      const topOffset = header.offsetHeight + 10;
+      const el = document.getElementById(id);
+      if (el) {
+        const y = el.getBoundingClientRect().top + window.scrollY - topOffset;
+        window.scrollTo({ top: y, behavior: "smooth" });
+      }
+    }
+
+    navLinks.forEach(link => {
+      link.addEventListener("click", e => {
+        e.preventDefault();
+        const target = link.getAttribute("data-target");
+        if (target) showSection(target);
+      });
+    });
+
+    // "See details" button opens About by default
+    const seeMore = document.getElementById("see-more-btn");
+    if (seeMore) {
+      seeMore.addEventListener("click", e => {
+        e.preventDefault();
+        showSection("about");
+      });
+    }
+
+    // If URL has a hash (#about etc.), open that section on load
+    window.addEventListener("DOMContentLoaded", () => {
+      const hash = window.location.hash.replace("#", "");
+      if (hash && document.getElementById(hash)) {
+        showSection(hash);
+      }
+    });
+  </script>
+</body>
+</html>
