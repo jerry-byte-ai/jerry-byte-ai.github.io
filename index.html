@@ -63,7 +63,7 @@
       background: linear-gradient(to right, #22d3ee, #6366f1);
       transition: width var(--transition-fast);
     }
-    .nav-links a:hover { color: var(--text); }
+    .nav-links a:hover { color: var(--text); text-shadow: 0 0 10px rgba(99,102,241,0.6); }
     .nav-links a:hover::after { width: 100%; }
 
     /* HERO */
@@ -127,7 +127,6 @@
       box-shadow: 0 12px 32px rgba(79, 70, 229, 0.55);
     }
     .btn-primary:hover {
-      transform: translateY(-1px) scale(1.01);
       box-shadow: 0 18px 42px rgba(79, 70, 229, 0.7);
     }
     .btn-ghost {
@@ -137,6 +136,10 @@
     .btn-ghost:hover {
       border-color: #6366f1;
       background: rgba(15, 23, 42, 0.95);
+    }
+    .btn:hover {
+      transform: translateY(-2px) scale(1.05);
+      box-shadow: 0 14px 40px rgba(99,102,241,0.55);
     }
     .hero-meta { font-size: 0.8rem; color: var(--muted); }
     .hero-meta span { color: #e5e7eb; font-weight: 500; }
@@ -219,7 +222,10 @@
       padding: 2.5rem 0;
       display: none;
     }
-    section.content-section.active { display: block; }
+    section.content-section.active {
+      display: block;
+      animation: fadeUp 0.6s ease;
+    }
     .section-header { margin-bottom: 1.6rem; }
     .section-kicker {
       font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.2em;
@@ -319,10 +325,15 @@
       box-shadow: 0 14px 32px rgba(15, 23, 42, 0.9);
       border: 2px solid rgba(15,23,42,0.9);
       background: radial-gradient(circle at 30% 0, rgba(56,189,248,0.25), rgba(37,99,235,0.85));
+      animation: floatSoft 6s ease-in-out infinite;
     }
     .skill-circle i {
       font-size: 32px;
       color: #f9fafb;
+    }
+    .skill-circle:hover {
+      animation: glowPulse 1.4s infinite;
+      transform: scale(1.12);
     }
     .skill-python { background: #3776ab; }
     .skill-html   { background: #e34f26; }
@@ -435,13 +446,32 @@
       transform: scale(1.02);
       transition: transform 0.35s ease;
     }
+    .certificate-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        120deg,
+        transparent 30%,
+        rgba(255,255,255,0.25),
+        transparent 70%
+      );
+      background-size: 200% 100%;
+      animation: shimmer 3s infinite;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+    }
     .certificate-card:hover {
-      transform: translateY(-8px) scale(1.03);
+      transform: translateY(-10px) scale(1.05) rotateX(6deg) rotateY(6deg);
       box-shadow: 0 22px 55px rgba(99,102,241,0.45);
       border-color: rgba(129,140,248,0.6);
     }
     .certificate-card:hover img {
       transform: scale(1.06);
+    }
+    .certificate-card:hover::before {
+      opacity: 1;
     }
     .certificate-overlay {
       position: absolute;
@@ -511,6 +541,7 @@
       display: flex;
       flex-direction: column;
       gap: 0.5rem;
+      animation: fadeUp 0.35s ease;
     }
     .cert-modal-header {
       display: flex;
@@ -590,6 +621,37 @@
       font-size: 0.78rem;
       color: var(--muted);
       text-align: center;
+    }
+
+    /* ===== GLOBAL ANIMATIONS ===== */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(25px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes floatSoft {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+      100% { transform: translateY(0); }
+    }
+
+    @keyframes glowPulse {
+      0% { box-shadow: 0 0 0 rgba(99,102,241,0); }
+      50% { box-shadow: 0 0 35px rgba(99,102,241,0.6); }
+      100% { box-shadow: 0 0 0 rgba(99,102,241,0); }
+    }
+
+    @keyframes shimmer {
+      0% { background-position: -200% 0; }
+      100% { background-position: 200% 0; }
+    }
+
+    /* Apply entrance animations to hero */
+    .hero > div:first-child {
+      animation: fadeUp 0.8s ease forwards;
+    }
+    .hero-right {
+      animation: fadeUp 1s ease 0.2s forwards;
     }
 
     @media (max-width: 900px) {
@@ -786,23 +848,21 @@
 
           <div class="skill-item">
             <div class="skill-circle skill-zabbix" title="Zabbix">
-              <img class="skill-logo"
-                   src="https://cdn.simpleicons.org/zabbix/ffffff"
-                   alt="Zabbix logo" />
-            </div>
+              Z
             <div class="skill-name">Zabbix</div>
           </div>
 
           <div class="skill-item">
             <div class="skill-circle skill-observium" title="Observium">
-              Z
-            </div>
+              O
             <div class="skill-name">Observium</div>
           </div>
 
           <div class="skill-item">
             <div class="skill-circle skill-wireshark" title="Wireshark">
-              O
+              <img class="skill-logo"
+                   src="https://cdn.simpleicons.org/wireshark/ffffff"
+                   alt="Wireshark logo" />
             </div>
             <div class="skill-name">Wireshark</div>
           </div>
@@ -940,7 +1000,7 @@
 
       <div class="certificate-wrapper">
         <div class="certificate-grid">
-        <!-- CICSA -->
+         <!-- CICSA -->
           <div class="certificate-card" data-img="CICSA.png" data-title="Cyber SOC Analyst (CICSA)">
             <img src="CICSA.png" alt="CICSA Certificate" />
             <div class="certificate-overlay">
@@ -951,7 +1011,7 @@
             </div>
           </div>
 
-        <!-- CCNA -->
+         <!-- CCNA -->
           <div class="certificate-card" data-img="CCNA.png" data-title="CCNA Certification">
             <img src="CCNA.png" alt="CCNA Certificate" />
             <div class="certificate-overlay">
@@ -961,7 +1021,7 @@
               </div>
             </div>
           </div>
-          
+
           <!-- WORKSHOP -->
           <div class="certificate-card" data-img="WORKSHOP.png" data-title="Technical Workshop">
             <img src="WORKSHOP.png" alt="Workshop Certificate" />
@@ -1129,5 +1189,3 @@
   </script>
 </body>
 </html>
-
-
