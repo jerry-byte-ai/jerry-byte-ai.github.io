@@ -302,20 +302,19 @@
       color: #e5e7eb;
     }
     .skills-icons {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: nowrap;
-      justify-content: center;
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      justify-items: center;
       align-items: center;
-      gap: 2.5rem;
-      margin-top: 1.4rem;
+      gap: 2rem;
+      margin-top: 2rem;
+      width: 100%
     }
     .skill-item {
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 0.45rem;
-      min-width: 90px;
     }
     .skill-circle {
       width: 74px;
@@ -656,13 +655,19 @@
       animation: fadeUp 1s ease 0.2s forwards;
     }
 
-    @media (max-width: 700px){
+    @media (max-width: 900px){
       .skills-icons{
-        flex-wrap:wrap;
-        gap: 1.2rem;
+        grid-template-columns: repeat(3, 1fr);
+        row-gap: 2rem;
       }
     }
-    
+
+    @media (max-width: 500px){
+      .skills-icons{
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+        
     @media (max-width: 900px) {
       .hero { grid-template-columns: minmax(0, 1fr); }
       .hero-right { order: -1; margin-bottom: 2rem; }
@@ -1198,5 +1203,6 @@
   </script>
 </body>
 </html>
+
 
 
