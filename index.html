@@ -303,9 +303,10 @@
     }
     .skills-icons {
       display: flex;
-      flex-wrap: wrap;
-      gap: 1.6rem;
+      flex-wrap: nowrap;
       justify-content: center;
+      align-items: flex-start;
+      gap: 2.4rem;
       margin-top: 1.4rem;
     }
     .skill-item {
@@ -654,6 +655,13 @@
       animation: fadeUp 1s ease 0.2s forwards;
     }
 
+    @media (max-width: 700px){
+      .skills-icons{
+        flex-wrap:wrap;
+        gap: 1.2rem;
+      }
+    }
+    
     @media (max-width: 900px) {
       .hero { grid-template-columns: minmax(0, 1fr); }
       .hero-right { order: -1; margin-bottom: 2rem; }
@@ -1189,3 +1197,4 @@
   </script>
 </body>
 </html>
+
