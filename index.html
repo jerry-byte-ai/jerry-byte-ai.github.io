@@ -11,16 +11,15 @@
   <!-- Devicon CDN for tech logos -->
   <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css" />
+
   <style>
     :root {
       --bg: #050816;
       --bg-alt: #0b1020;
       --accent: #6366f1;
-      --accent-soft: rgba(99, 102, 241, 0.15);
       --text: #f9fafb;
       --muted: #9ca3af;
       --card: #111827;
-      --border: #1f2933;
       --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.7);
       --radius-lg: 18px;
       --radius-full: 999px;
@@ -36,7 +35,6 @@
     }
     a { color: inherit; text-decoration: none; }
     img { max-width: 100%; display: block; }
-
     .container { width: 100%; max-width: 1080px; margin: 0 auto; padding: 0 1.25rem; }
 
     /* NAVBAR */
@@ -221,9 +219,7 @@
       padding: 2.5rem 0;
       display: none;
     }
-    section.content-section.active {
-      display: block;
-    }
+    section.content-section.active { display: block; }
     .section-header { margin-bottom: 1.6rem; }
     .section-kicker {
       font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.2em;
@@ -232,6 +228,7 @@
     .section-title { font-size: 1.4rem; font-weight: 600; }
     .section-desc { font-size: 0.9rem; color: var(--muted); margin-top: 0.3rem; }
 
+    /* ABOUT */
     .about-grid {
       display: grid;
       grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
@@ -249,6 +246,7 @@
     .about-list { list-style: none; margin-top: 0.7rem; font-size: 0.85rem; color: var(--muted); }
     .about-list li { margin-bottom: 0.35rem; }
 
+    /* EXPERIENCE */
     .experience-list { display: grid; gap: 1rem; }
     .experience-item {
       background: var(--bg-alt);
@@ -277,7 +275,8 @@
       font-size: 0.83rem; color: #e5e7eb;
     }
     .experience-item li + li { margin-top: 0.35rem; }
-    /* Makes SVG/PNG logos fit perfectly inside circles */
+
+    /* SKILLS */
     .skill-circle img.skill-logo {
       width: 34px;
       height: 34px;
@@ -285,7 +284,6 @@
       display: block;
       margin: 0 auto;
     }
-    /* SKILLS SECTION (CDN logos + circles) */
     .skills-wrapper {
       background: var(--bg-alt);
       border-radius: var(--radius-lg);
@@ -333,9 +331,6 @@
     .skill-wireshark { background: #1679a7; }
     .skill-observium {
       background: radial-gradient(circle at 30% 0, #06b6d4, #7c3aed);
-      font-weight: 700;
-      color: #0b1020;
-      font-size: 1.2rem;
     }
 
     .skill-name {
@@ -365,6 +360,7 @@
       color: #e5e7eb;
     }
 
+    /* EDUCATION */
     .education-list { display: grid; gap: 0.9rem; }
     .education-item {
       background: var(--bg-alt);
@@ -381,6 +377,7 @@
     }
     .education-meta { color: var(--muted); font-size: 0.8rem; }
 
+    /* CONTACT */
     .contact-grid {
       display: grid;
       grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
@@ -407,6 +404,185 @@
       text-decoration-style: dotted;
     }
 
+    /* CERTIFICATES – cards + hover + animation */
+    .certificate-wrapper {
+      background: var(--bg-alt);
+      border-radius: 18px;
+      border: 1px solid rgba(31,41,55,0.9);
+      padding: 1.8rem 1.6rem 2.2rem;
+      box-shadow: 0 14px 40px rgba(15,23,42,0.6);
+    }
+    .certificate-grid {
+      margin-top: 1.5rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.6rem;
+    }
+    .certificate-card {
+      position: relative;
+      background: #020617;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(148,163,184,0.2);
+      transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+      cursor: pointer;
+    }
+    .certificate-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      display: block;
+      transform: scale(1.02);
+      transition: transform 0.35s ease;
+    }
+    .certificate-card:hover {
+      transform: translateY(-8px) scale(1.03);
+      box-shadow: 0 22px 55px rgba(99,102,241,0.45);
+      border-color: rgba(129,140,248,0.6);
+    }
+    .certificate-card:hover img {
+      transform: scale(1.06);
+    }
+    .certificate-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to top,
+        rgba(2,6,23,0.96),
+        rgba(2,6,23,0.2)
+      );
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding: 1rem;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .certificate-card:hover .certificate-overlay {
+      opacity: 1;
+    }
+    .certificate-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-align: center;
+      color: #e5e7eb;
+    }
+    .certificate-btn {
+      margin-top: 0.5rem;
+      display: inline-block;
+      font-size: 0.75rem;
+      padding: 0.35rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.4);
+      background: rgba(15,23,42,0.85);
+      color: #e5e7eb;
+    }
+    .certificate-btn:hover {
+      background: #6366f1;
+      border-color: #6366f1;
+    }
+
+    /* CERTIFICATE MODAL (popup) */
+    .cert-modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(15,23,42,0.92);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 80;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+    }
+    .cert-modal-backdrop.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .cert-modal {
+      max-width: 900px;
+      width: 92%;
+      max-height: 90vh;
+      background: #020617;
+      border-radius: 18px;
+      padding: 0.9rem 0.9rem 1rem;
+      border: 1px solid rgba(148,163,184,0.25);
+      box-shadow: 0 24px 60px rgba(0,0,0,0.9);
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .cert-modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.9rem;
+      color: var(--muted);
+      padding: 0 0.1rem 0.2rem;
+    }
+    .cert-modal-title {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: #e5e7eb;
+    }
+    .cert-modal-close {
+      cursor: pointer;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.4);
+      width: 26px;
+      height: 26px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+    }
+    .cert-modal-close:hover {
+      background: #ef4444;
+      border-color: #ef4444;
+      color: white;
+    }
+    .cert-modal-image-wrap {
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid rgba(31,41,55,0.9);
+      background: #020617;
+      flex: 1;
+    }
+    .cert-modal-image-wrap img {
+      width: 100%;
+      height: auto;
+      max-height: 70vh;
+      object-fit: contain;
+      display: block;
+    }
+    .cert-modal-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-top: 0.2rem;
+    }
+    .cert-modal-actions {
+      display: flex;
+      gap: 0.5rem;
+    }
+    .cert-modal-btn {
+      font-size: 0.78rem;
+      padding: 0.35rem 0.85rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.4);
+      background: rgba(15,23,42,0.9);
+      color: #e5e7eb;
+    }
+    .cert-modal-btn.primary {
+      background: linear-gradient(to right, #4f46e5, #22c55e);
+      border-color: transparent;
+    }
+    .cert-modal-btn:hover {
+      border-color: #6366f1;
+    }
+
     footer {
       padding: 1.5rem 0 2rem;
       border-top: 1px solid rgba(31, 41, 55, 0.9);
@@ -421,13 +597,13 @@
       .hero-right { order: -1; margin-bottom: 2rem; }
       .about-grid, .contact-grid { grid-template-columns: minmax(0, 1fr); }
       .nav-links { display: none; }
-      .skills-icons { gap: 1.1rem; }
     }
     @media (max-width: 600px) {
       .hero { padding-top: 3.3rem; }
       .hero-title { font-size: 2.1rem; }
       .hero-card { padding: 1.1rem 1.1rem 1rem; }
       .section-title { font-size: 1.25rem; }
+      .cert-modal { padding: 0.7rem 0.7rem 0.8rem; }
     }
   </style>
 </head>
@@ -444,6 +620,7 @@
         <a data-target="skills">Skills</a>
         <a data-target="experience">Experience</a>
         <a data-target="education">Education</a>
+        <a data-target="certificates">Certificates</a>
         <a data-target="contact">Contact</a>
       </nav>
     </div>
@@ -569,7 +746,7 @@
       </div>
     </section>
 
-    <!-- SKILLS (icon style with CDN logos) -->
+    <!-- SKILLS -->
     <section id="skills" class="content-section">
       <div class="section-header">
         <div class="section-kicker">Skills</div>
@@ -585,9 +762,7 @@
           troubleshooting and automation.
         </p>
 
-        <!-- Icon row -->
-        <div class="skills-icons" aria-hidden="false">
-          <!-- Python -->
+        <div class="skills-icons">
           <div class="skill-item">
             <div class="skill-circle skill-python" title="Python">
               <i class="devicon-python-plain"></i>
@@ -595,7 +770,6 @@
             <div class="skill-name">Python</div>
           </div>
 
-          <!-- HTML -->
           <div class="skill-item">
             <div class="skill-circle skill-html" title="HTML">
               <i class="devicon-html5-plain"></i>
@@ -603,7 +777,6 @@
             <div class="skill-name">HTML</div>
           </div>
 
-          <!-- GCP -->
           <div class="skill-item">
             <div class="skill-circle skill-gcp" title="Google Cloud Platform">
               <i class="devicon-googlecloud-plain"></i>
@@ -611,30 +784,29 @@
             <div class="skill-name">GCP</div>
           </div>
 
-          <!-- Zabbix -->
           <div class="skill-item">
             <div class="skill-circle skill-zabbix" title="Zabbix">
-              Z
+              <img class="skill-logo"
+                   src="https://cdn.simpleicons.org/zabbix/ffffff"
+                   alt="Zabbix logo" />
             </div>
             <div class="skill-name">Zabbix</div>
           </div>
 
-          <!-- Observium (no common CDN icon, custom styled) -->
           <div class="skill-item">
             <div class="skill-circle skill-observium" title="Observium">
-              O
+              <img class="skill-logo"
+                   src="https://raw.githubusercontent.com/walkxhub/dashboard-icons/master/png/observium.png"
+                   alt="Observium logo" />
             </div>
             <div class="skill-name">Observium</div>
           </div>
 
-          <!-- Wireshark -->
           <div class="skill-item">
             <div class="skill-circle skill-wireshark" title="Wireshark">
-               <img
-                class="skill-logo"
-                src="https://cdn.simpleicons.org/wireshark/ffffff"
-                alt="Wireshark logo"
-               />
+              <img class="skill-logo"
+                   src="https://cdn.simpleicons.org/wireshark/ffffff"
+                   alt="Wireshark logo" />
             </div>
             <div class="skill-name">Wireshark</div>
           </div>
@@ -645,7 +817,6 @@
           and collaborating with cross-functional teams.
         </p>
 
-        <!-- extra tags under icons -->
         <div class="skills-grid">
           <span class="skills-chip">Scripting & automation</span>
           <span class="skills-chip">Web basics</span>
@@ -761,6 +932,54 @@
       </div>
     </section>
 
+    <!-- CERTIFICATES -->
+    <section id="certificates" class="content-section">
+      <div class="section-header">
+        <div class="section-kicker">Certificates</div>
+        <h2 class="section-title">Check out my certificates</h2>
+        <p class="section-desc">
+          A few of the courses and certifications I’ve completed as part of my learning journey.
+        </p>
+      </div>
+
+      <div class="certificate-wrapper">
+        <div class="certificate-grid">
+          <!-- CCNA -->
+          <div class="certificate-card" data-img="CCNA.png" data-title="CCNA Certification">
+            <img src="CCNA.png" alt="CCNA Certificate" />
+            <div class="certificate-overlay">
+              <div>
+                <div class="certificate-title">CCNA Certification</div>
+                <span class="certificate-btn">View</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- CICSA -->
+          <div class="certificate-card" data-img="CICSA.png" data-title="Cyber SOC Analyst (CICSA)">
+            <img src="CICSA.png" alt="CICSA Certificate" />
+            <div class="certificate-overlay">
+              <div>
+                <div class="certificate-title">Cyber SOC Analyst (CICSA)</div>
+                <span class="certificate-btn">View</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- WORKSHOP -->
+          <div class="certificate-card" data-img="WORKSHOP.png" data-title="Technical Workshop">
+            <img src="WORKSHOP.png" alt="Workshop Certificate" />
+            <div class="certificate-overlay">
+              <div>
+                <div class="certificate-title">Technical Workshop</div>
+                <span class="certificate-btn">View</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- CONTACT -->
     <section id="contact" class="content-section">
       <div class="section-header">
@@ -807,11 +1026,31 @@
     © <span id="year"></span> Jerlin G George · Built for LinkedIn & GitHub Pages
   </footer>
 
+  <!-- CERTIFICATE MODAL -->
+  <div id="cert-modal-backdrop" class="cert-modal-backdrop">
+    <div class="cert-modal">
+      <div class="cert-modal-header">
+        <div class="cert-modal-title" id="cert-modal-title">Certificate</div>
+        <button class="cert-modal-close" id="cert-modal-close" aria-label="Close">✕</button>
+      </div>
+      <div class="cert-modal-image-wrap">
+        <img id="cert-modal-image" src="" alt="Certificate preview" />
+      </div>
+      <div class="cert-modal-footer">
+        <span>Click download to save a copy.</span>
+        <div class="cert-modal-actions">
+          <a id="cert-modal-download" class="cert-modal-btn primary" href="#" download>Download</a>
+          <button id="cert-modal-open-new" class="cert-modal-btn">Open in new tab</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script>
     // footer year
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // show sections only when nav links are clicked
+    // show sections when nav links clicked
     const navLinks = document.querySelectorAll(".nav-links a[data-target]");
     const sections = document.querySelectorAll(".content-section");
 
@@ -837,7 +1076,7 @@
       });
     });
 
-    // "See details" button opens About by default
+    // "See details" button opens About
     const seeMore = document.getElementById("see-more-btn");
     if (seeMore) {
       seeMore.addEventListener("click", e => {
@@ -846,12 +1085,50 @@
       });
     }
 
-    // If URL has a hash (#about etc.), open that section on load
+    // Open section from hash on load
     window.addEventListener("DOMContentLoaded", () => {
       const hash = window.location.hash.replace("#", "");
       if (hash && document.getElementById(hash)) {
         showSection(hash);
       }
+    });
+
+    // CERTIFICATE MODAL LOGIC
+    const certCards = document.querySelectorAll(".certificate-card");
+    const modalBackdrop = document.getElementById("cert-modal-backdrop");
+    const modalImage = document.getElementById("cert-modal-image");
+    const modalTitle = document.getElementById("cert-modal-title");
+    const modalClose = document.getElementById("cert-modal-close");
+    const modalDownload = document.getElementById("cert-modal-download");
+    const modalOpenNew = document.getElementById("cert-modal-open-new");
+
+    function openCertModal(src, title) {
+      modalImage.src = src;
+      modalImage.alt = title;
+      modalTitle.textContent = title || "Certificate";
+      modalDownload.href = src;
+      modalOpenNew.onclick = () => window.open(src, "_blank");
+      modalBackdrop.classList.add("active");
+    }
+
+    certCards.forEach(card => {
+      card.addEventListener("click", () => {
+        const img = card.getAttribute("data-img");
+        const title = card.getAttribute("data-title");
+        if (img) openCertModal(img, title);
+      });
+    });
+
+    function closeCertModal() {
+      modalBackdrop.classList.remove("active");
+    }
+
+    modalClose.addEventListener("click", closeCertModal);
+    modalBackdrop.addEventListener("click", e => {
+      if (e.target === modalBackdrop) closeCertModal();
+    });
+    window.addEventListener("keydown", e => {
+      if (e.key === "Escape") closeCertModal();
     });
   </script>
 </body>
